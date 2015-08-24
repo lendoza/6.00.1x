@@ -8,9 +8,8 @@ upperBound = (balance * (1 + annualInterestRate / 12) ** 12) / 12
 originalBalance = balance
 epsilon = 0.01 
 
-# Keep testing new payment values until the balance is +/- lowestBalance
+
 while abs(balance) > epsilon:
-    # Reset the value of balance to its original value
     balance = originalBalance
     # Calculate a new monthly payment value from the bounds
     payment = (upperBound - lowerBound) / 2 + lowerBound
@@ -28,5 +27,5 @@ while abs(balance) > epsilon:
         # If the balance is too small, we need a lower payment, so we decrease the upper bound
         upperBound = payment
 
-# When the while loop terminates, we know we have our answer!
+
 print "Lowest Payment:", round(payment, 2)
